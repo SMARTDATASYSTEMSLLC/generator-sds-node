@@ -46,7 +46,7 @@ module.exports = generators.Base.extend({
             type:'list',
             message: 'Do you want to include JWT authentication?',
             default: 0,
-            choices: ['No','Yes']
+            choices: ['Yes','No']
         }, function (props) {
             this.nodeHasAuth = props.router === 'Yes';
             this.localKey = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -66,11 +66,12 @@ module.exports = generators.Base.extend({
         var cb = this.async();
         mkdirp.sync('./' + this.distdir);
 
-        this.fs.copy   (this.templatePath('skeleton/'),this.destinationPath('./'), this);
+        this.fs.copy   (this.templatePath('skeleton/'),this.destinationPath('./'), { globOptions: {dot:true}});
         this.fs.copyTpl(this.templatePath('templates/env.json'),   this.destinationPath('./server/env.json'), this);
         this.fs.copyTpl(this.templatePath('templates/server.js'),   this.destinationPath('./server/server.js'), this);
         this.fs.copyTpl(this.templatePath('templates/package.json'), this.destinationPath('package.json'), this);
-        if (this.hasAuth){
+        this.fs.copyTpl(this.templatePath('templates/plugins/'),this.destinationPath('./server/plugins/'), this);
+        if (this.nodeHasAuth){
             this.fs.copyTpl(this.templatePath('auth/'),    this.destinationPath('./'), this);
         }
 
@@ -87,12 +88,13 @@ module.exports = generators.Base.extend({
             "bookends",
             "bookshelf",
             "boom",
+            "cast-array",
             "glob",
             "handlebars",
             "hapi",
             "hapi-auth-jwt2",
             "hapi-io",
-            "hapi-swagger",
+            "hapi-swagger@2",
             "hoek",
             "inert",
             "install",
@@ -109,7 +111,7 @@ module.exports = generators.Base.extend({
             "stream-transform",
             "through",
             "vision"
-        ]);
+        ], {save: true});
     }
 });
 

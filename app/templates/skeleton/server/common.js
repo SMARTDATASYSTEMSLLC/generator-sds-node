@@ -1,7 +1,7 @@
 /* global process */
 "use strict";
 
-let env = require('./../../templates/env.json');
+let env = require('./env.json');
 
 exports.config = function(node_env) {
     node_env = node_env || process.env.NODE_ENV || 'local';

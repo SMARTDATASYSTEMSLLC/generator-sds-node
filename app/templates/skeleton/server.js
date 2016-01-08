@@ -1,1 +1,1 @@
-require('./../templates/server');
+require('./server/server.js');

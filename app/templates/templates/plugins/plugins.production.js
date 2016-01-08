@@ -1,7 +1,8 @@
 "use strict";
 let path = require('path');
 module.exports = [
-    {register: require('inert'), options :{} },
+    {   register: require('inert') }, //<% if (nodeHasAuth) { %>
+    {   register: require('hapi-auth-jwt2') }, //<% } %>  Enable Authentication
     {
         register: require('../local_modules/hapi-bookshelf-models'),
         options: {

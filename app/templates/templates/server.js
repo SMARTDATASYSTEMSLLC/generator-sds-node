@@ -22,7 +22,7 @@
     server.register(plugins, (err) => {
         if (err) {throw err;}
 
-        //<% if (hasAuth) { %> Enable Authentication
+        //<% if (nodeHasAuth) { %> Enable Authentication
         server.auth.strategy('token', 'jwt', {
             key: config.privateKey,
             validateFunc: (decodedToken, request, callback) => {

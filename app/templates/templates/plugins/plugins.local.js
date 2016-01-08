@@ -2,11 +2,12 @@
 let path = require('path');
 module.exports = [
     {   register: require('inert') },
-    {   register: require('vision') },
+    {   register: require('vision') }, //<% if (nodeHasAuth) { %>
+    {   register: require('hapi-auth-jwt2') }, //<% } %>  Enable Authentication
     {
         register: require('hapi-swagger'),
         options: {
-            apiVersion: require('../../../templates/package.json').version,
+            apiVersion: require('../../package.json').version,
             pathPrefixSize: 2,
             enableDocumentationPage:false,
             authorizations: {
