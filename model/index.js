@@ -15,7 +15,7 @@ module.exports = generators.Base.extend({
 
         var prompts = [];
 
-        sdsUtils.addNamePrompt(this,prompts,'filter');
+        sdsUtils.addNamePrompt(this,prompts,'model');
 
         if (!prompts.length){
             cb();
@@ -31,6 +31,6 @@ module.exports = generators.Base.extend({
     },
     files: function () {
         var modelname = lodash.capitalize(lodash.camelCase(this.name));
-        this.fs.copyTpl(this.templatePath('templates/model.js'),   this.destinationPath('./server/models/' + modelname + '.js'), this);
+        this.fs.copyTpl(this.templatePath('model.js'),   this.destinationPath('./server/models/' + modelname + '.js'), this);
     }
 });
