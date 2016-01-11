@@ -31,6 +31,7 @@ module.exports = generators.Base.extend({
     },
     files: function () {
         this.name = this.name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+        this.classname =  lodash.capitalize(lodash.camelCase(this.name));
         this.fs.copyTpl(this.templatePath('route.js'),   this.destinationPath('./server/routes/' + this.name + '-route.js'), this);
         this.fs.copyTpl(this.templatePath('service.js'),   this.destinationPath('./server/services/' + this.name + '-service.js'), this);
         this.fs.copyTpl(this.templatePath('test.js'),   this.destinationPath('./server/test/' + this.name + '-route.test.js'), this);

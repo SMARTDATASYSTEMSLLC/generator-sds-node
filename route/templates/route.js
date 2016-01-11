@@ -19,7 +19,7 @@
                 tags: ['api']
             },
             handler: (request, reply) => {
-                return new <%= lodash.camelCase(name) + 'Service' %>(request).<%= 'getAll' + lodash.camelCase(name) %>().then(reply, reject(reply));
+                return new <%= classname + 'Service' %>(request).<%= 'getAll' + classname %>().then(reply, reject(reply));
             }
         },
         {
@@ -33,7 +33,7 @@
                 }
             },
             handler: (request, reply) => {
-                return new <%= lodash.camelCase(name) + 'Service' %>(request).<%= 'create' + lodash.camelCase(name) %>(request.payload).then(reply, reject(reply));
+                return new <%= classname + 'Service' %>(request).<%= 'create' + classname %>(request.payload).then(reply, reject(reply));
             }
         }
     ];

@@ -1,6 +1,6 @@
 {
   "name": "generator-sds-node",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Hapi Node Bookshelf Knex Generator for SDS projects",
   "homepage": "https://github.com/SMARTDATASYSTEMSLLC/generator-sds-node",
 	"bugs": "https://github.com/SMARTDATASYSTEMSLLC/generator-sds-node/issues",

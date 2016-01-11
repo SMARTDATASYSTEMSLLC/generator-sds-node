@@ -6,16 +6,16 @@
         Base = require('./base'),
         Boom = require('boom');
 
-    module.exports = class <%= lodash.camelCase(name) + 'Service' %> extends Base {
+    module.exports = class <%= classname + 'Service' %> extends Base {
         constructor(request) {
             super(request);
         }
 
-        <%= 'getAll' + lodash.camelCase(name) %> () {
+        <%= 'getAll' + classname %> () {
             return Promise.resolve({});
         }
 
-        <%= 'create' + lodash.camelCase(name) %> (model) {
+        <%= 'create' + classname %> (model) {
             return Promise.resolve({});
         }
     };
