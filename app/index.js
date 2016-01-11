@@ -11,8 +11,6 @@ module.exports = generators.Base.extend({
     constructor: function (){
         generators.Base.apply(this, arguments);
         this.lodash = lodash;
-
-        this.pkg = jsonFile.readFileSync(path.join(__dirname, '../package.json'), {throws:false});
     },
     askFor: function () {
         var cb = this.async();
