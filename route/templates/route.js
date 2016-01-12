@@ -2,6 +2,7 @@
     "use strict";
     let Boom = require('boom');
     let Joi = require("joi");
+    let <%= classname + 'Service' %> = require('../services/<%= name %>-service.js');
 
     let reject = function (reply) {
         return function (err) {
